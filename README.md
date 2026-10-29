@@ -1,121 +1,123 @@
-> 一個塞滿三萬多封信的免費 Gmail,不裝任何 App、不裝擴充、一封信都沒刪,
-> 一小時把收件匣清掉九成。全程只用 Gmail 網頁版本來就有的搜尋語法、封存、篩選器。
+# Cleaning a 33,000-email inbox with nothing but Gmail's built-in tools
 
-# 三萬三千封的收件匣,只用 Gmail 內建功能清乾淨
+> 繁體中文版 → [README.zh-TW.md](README.zh-TW.md)
 
-> 給「收件匣爆掉但不想裝任何第三方 App」的人。全程只用 Gmail 網頁版原本就有的東西:
-> 搜尋語法、封存、篩選器。不裝擴充、不給別人讀信權限、不會刪掉任何一封信。
+> A free Gmail account holding 33,000+ messages. No apps, no extensions, **not a single email deleted** —
+> and the inbox 90% smaller in about an hour. Everything here uses only what Gmail's web interface already
+> has: search operators, Archive, and Filters.
 
-## 先講結論
+## The short version
 
-一個累積了十幾年、塞了三萬多封信的免費 Gmail,可以在一小時內把收件匣從 **約 33,000 封降到約 4,000 封**,
-而且:
+An inbox that has been filling up for a decade or more can go from **~33,000 to ~4,000 messages in under an hour**, and:
 
-- **一封信都沒刪**(Google 的「所有郵件」總數前後完全一樣)
-- **沒有產生重複**
-- 之後新進來的廣告信會**自動繞過收件匣**,分進各自的標籤
+- **Nothing was deleted** (the All Mail total is identical before and after)
+- **Nothing was duplicated**
+- New promotional mail now **skips the inbox entirely** and lands under its own label
 
-留下來的四千封不是沒清完,是**故意留的**(下面會說為什麼)。
-
----
-
-## 第 0 步:先搞清楚「收件匣」和「所有郵件」是兩件事
-
-這是最多人卡住的地方。
-
-- **收件匣(Inbox)**:待辦清單。它只是「信件的一個標籤」,不是資料夾。
-- **所有郵件(All Mail)**:真正的資料庫,所有信都在這裡,包括你已經封存掉的。
-
-所以「**封存(Archive)**」≠「刪除」。封存只是把信從收件匣這個標籤上拿掉,
-信還在「所有郵件」裡,搜尋還找得到,手機上還讀得到。
-
-**清理收件匣 = 把不重要的信從待辦清單上移走,不是把信消滅。**
-想通這件事,心態就從「我不敢刪」變成「我只要搬」。
+The 4,000 left behind were left on purpose — more on why below.
 
 ---
 
-## 第 1 步:先數,不要先動手
+## Step 0: "Inbox" and "All Mail" are two different things
 
-Gmail 搜尋框支援一堆實用語法,先量一下規模再決定要花多少力氣:
+This is where most people get stuck.
 
-| 想知道的 | 搜尋語法 |
+- **Inbox**: a to-do list. It is just one label on a message, not a folder.
+- **All Mail**: the actual store. Every message lives here, including the ones you archived.
+
+So **Archive ≠ Delete**. Archiving only takes the message off the Inbox label. It stays in All Mail,
+it is still searchable, it still shows up on your phone.
+
+**Cleaning the inbox means moving things off the to-do list, not destroying them.**
+Once that clicks, the mindset shifts from "I don't dare delete anything" to "I just need to move it".
+
+---
+
+## Step 1: Measure first, act second
+
+Gmail's search box understands a lot. Size the job before deciding how much effort to spend:
+
+| What you want to know | Search operator |
 |---|---|
-| 總共有幾封在收件匣 | 看左側「收件匣」旁邊的數字 |
-| 一年以上的信 | `older_than:1y` |
-| 半年以上 | `older_than:6m` |
-| 促銷類 | `category:promotions` |
-| 通知/帳務類 | `category:updates` |
-| 社群通知 | `category:social` |
-| 主要(真人來信) | `category:primary` |
-| 有附件 | `has:attachment` |
-| 沒讀過的 | `is:unread` |
+| How many messages are in the inbox | the number next to "Inbox" in the sidebar |
+| Older than a year | `older_than:1y` |
+| Older than six months | `older_than:6m` |
+| Promotions | `category:promotions` |
+| Notifications / receipts | `category:updates` |
+| Social notifications | `category:social` |
+| Primary (mail from actual humans) | `category:primary` |
+| Has an attachment | `has:attachment` |
+| Unread | `is:unread` |
 
-**語法可以疊**:`category:promotions older_than:1y`、`(category:promotions OR category:social) older_than:2y`。
-搜尋結果上方會寫「約 X 封」,那就是你要搬的量。
+**Operators stack**: `category:promotions older_than:1y`, `(category:promotions OR category:social) older_than:2y`.
+The results header tells you roughly how many matches there are — that is the size of the move.
 
-> 我自己的實測:收件匣約 33,000 封,其中「一年以上的促銷+通知+社群」就有 **約 29,000 封**。
-> 換句話說,八成以上的收件匣根本是廣告倉庫,不是信箱。
+> My own numbers: an inbox of ~33,000 messages, of which "promotions + updates + social, older than a year"
+> alone was **~29,000**. In other words, four fifths of that inbox was an ad warehouse, not a mailbox.
 
 ---
 
-## 第 2 步:分類,決定「哪些該搬、哪些不能搬」
+## Step 2: Sort out what should move and what must not
 
-Gmail 自動把信分成四類:**主要 / 促銷 / 社群 / 更新**。清理策略大概是:
+Gmail sorts mail into four tabs: **Primary / Promotions / Social / Updates**. A rough strategy:
 
-| 分類 | 該不該搬離收件匣 |
+| Category | Move it out of the inbox? |
 |---|---|
-| 促銷(promotions) | ✅ 搬,而且從此以後都別讓它進收件匣 |
-| 社群(social) | ✅ 搬(社群網站通知,幾乎沒人回頭看) |
-| 更新(updates) | ⚠️ **小心**。銀行、信用卡、電商、帳單通知常常被歸在這一類 |
-| 主要(primary) | ❌ 不搬,這裡是真人寫給你的信 |
+| Promotions | ✅ Yes — and keep it from coming back |
+| Social | ✅ Yes (social notifications nobody re-reads) |
+| Updates | ⚠️ **Careful.** Bank, credit card, e-commerce and billing notices often land here |
+| Primary | ❌ No. This is mail from actual people |
 
-**「更新」這一類是陷阱。** 很多人一鍵清空「更新」,結果帳單通知、刷卡通知、電子發票全部沉到下面,
-等到要對帳才發現找不到。這是我自己踩過的坑:前一版計畫本來要把 `category:updates` 也一起擋掉,
-後來打開寄件者名單一看——某家銀行 500 封、另一家銀行 150 封、某個數位帳戶 130 封、某應用程式商店 200 封……
-**這些是帳務紀錄,不是垃圾。** 所以更新類一律留著,最多另外貼標籤分類。
+**"Updates" is the trap.** Plenty of people clear the whole Updates tab and only later discover their
+statements, card notifications and invoices sank out of sight. I walked into this one myself: an earlier
+plan of mine was going to archive `category:updates` too. Then I looked at the sender list —
+one bank with 500 messages, another with 150, a digital account with 130, an app store with 200…
+**Those are financial records, not junk.** So Updates stays, at most with a label on top.
 
-> 判斷方法:搬之前先看「寄件者」。如果名單裡出現銀行、電商、電信、保險、稅務 → 那批不要動。
+> How to tell: check the senders before you move a batch. If banks, e-commerce, telecom, insurance or tax
+> agencies show up in the list, leave that batch alone.
 
 ---
 
-## 第 3 步:一次搬一大批(純網頁操作)
+## Step 3: Move in one big batch (web UI only)
 
-1. 搜尋框輸入條件,例如:
+1. Type the condition into the search box, e.g.
    `(category:promotions OR category:social) older_than:1y`
-2. 按 Enter,等結果出來。
-3. 勾選結果列表**最上面那一格的核取方塊**。
-4. 上方會出現一行字:「已選取本頁 50 個會話群組。**選取所有符合此搜尋條件的會話群組**」——
-   點那行連結,它才會選「全部」,不是只有這一頁。
-5. 按工具列上的**封存**圖示(向下的箭頭箱子)。
+2. Press Enter and wait for the results.
+3. Tick the checkbox at the **top of the results list**.
+4. A line appears: "All 50 conversations on this page are selected. **Select all conversations that match
+   this search**." Click that link — otherwise you only selected this page.
+5. Click the **Archive** icon in the toolbar (the box with a downward arrow).
 
-這樣就一次搬完了。想分批做也可以,把 `older_than:1y` 改成 `older_than:3y` 之類的一段一段搬。
+That is the whole batch. You can also go in slices — change `older_than:1y` to `older_than:3y` and repeat.
 
-**搬完檢查一下**:左側「所有郵件」的數字應該幾乎沒變(封存不會增減總數)。
-如果總數掉了,代表你按到的是刪除,不是封存——去「垃圾桶」救回來就好(垃圾桶有 30 天)。
+**Check afterwards**: the All Mail count should be almost unchanged (archiving does not change the total).
+If the total dropped, you pressed Delete instead of Archive — recover from Trash (it keeps 30 days).
 
 ---
 
-## 第 4 步:防未來 —— 讓廣告信以後直接繞過收件匣
+## Step 4: Stop it happening again — filters
 
-清完如果不設規則,過半年又是一樣。這步叫**篩選器(Filter)**:
+Without a rule, in six months you are back where you started. That rule is a **filter**:
 
-1. 右上齒輪 → **查看所有設定** → **篩選器和已封鎖的地址**
-2. 點 **建立新篩選器**
-3. 在「包含字詞」填入:`category:promotions`
-4. 按 **建立篩選器**
-5. 勾 **略過收件匣(封存)**,勾 **套用標籤** 並新建一個「促銷」
-6. 按 **建立篩選器**
+1. Gear icon (top right) → **See all settings** → **Filters and Blocked Addresses**
+2. **Create a new filter**
+3. In "Has the words", enter: `category:promotions`
+4. **Create filter**
+5. Tick **Skip the Inbox (Archive it)** and **Apply the label**, creating a label called "Promotions"
+6. **Create filter**
 
-再重複一次,把 `category:promotions` 換成 `category:social`、標籤叫「社群」。
+Repeat with `category:social` and a "Social" label.
 
-**注意 `category:updates` 不要設成「略過收件匣」**——理由同第 2 步,那條規則會讓帳單直接消失。
+**Do not set `category:updates` to skip the inbox** — same reason as step 2; that rule would make your bills disappear.
 
-> 小提醒:篩選器只對「之後進來」的信生效。已經在收件匣裡的,要另外用第 3 步搬一次。
+> Note: a filter only applies to mail that arrives *after* it is created. What is already in the inbox has to
+> be moved with step 3.
 
-### 如果篩選器頁面「建立篩選器」按了沒反應
+### If "Create filter" does nothing on the filter page
 
-遇到過的話(某些版本的 Gmail 網頁有這個毛病),還有第二條路:**用 XML 匯入**。
-同一個設定頁下方有「匯入篩選器」,可以餵一份這種格式的檔案:
+If you hit this (some builds of the Gmail web UI have the bug), there is a second route: **import XML**.
+The same settings page has an "Import filters" option that accepts a file like this:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -127,42 +129,43 @@ Gmail 自動把信分成四類:**主要 / 促銷 / 社群 / 更新**。清理策
     <content></content>
     <apps:property name='hasTheWord' value='category:promotions'/>
     <apps:property name='shouldArchive' value='true'/>
-    <apps:property name='label' value='促銷'/>
+    <apps:property name='label' value='Promotions'/>
   </entry>
 </feed>
 ```
 
-選檔 → 預覽 → 按「建立篩選器」,會一次把裡面所有規則建好(標籤不存在會自動建立)。
+Pick the file → review → **Create filters**. All rules inside are created at once (missing labels are created too).
 
 ---
 
-## 那留下來的四千封是什麼?
+## So what are the 4,000 left behind?
 
-清完之後我打開剩下的收件匣,寄件者前十名長這樣:
+Opening what remained, the top senders looked like this:
 
-| 寄件者 | 封數 |
+| Sender | Messages |
 |---|---|
-| 某電子報 | 約 600 |
-| 某家銀行 | 約 500 |
-| 某應用程式商店 | 約 300 |
-| 某支付服務 | 約 170 |
-| 另一家銀行 | 約 150 |
-| 某個數位帳戶 | 約 220 |
-| 其他:券商、電信、外送、串流 | 各 40–90 |
+| A newsletter | ~600 |
+| One bank | ~500 |
+| An app store | ~300 |
+| A payment service | ~170 |
+| Another bank | ~150 |
+| A digital account | ~220 |
+| Others: brokers, telecom, delivery, streaming | 40–90 each |
 
-——全部是**帳務與消費紀錄**。這批的價值不在「讀」,而在「哪天要對帳、要退訂、要報稅的時候找得到」。
-所以它們留在收件匣,只有廣告和社群通知被搬走。
+All of it is **financial and purchase history**. Its value is not in reading it — it is in finding it when you
+need to reconcile, cancel a subscription or file taxes. So it stays in the inbox; only ads and social
+notifications were moved out.
 
-如果你想更進一步,可以幫它們設一條**只貼標籤、不略過收件匣**的篩選器,
-收件匣照樣會多,但至少能用標籤一鍵篩選。
-
----
-
-## 一句話總結
-
-> **收件匣不是倉庫,是待辦清單。**
-> 封存不是刪除,篩選器才是治本。真正要小心的只有一件事:別把帳單當垃圾清掉。
+If you want to go further, give them a filter that **only adds a label and does not skip the inbox** —
+the inbox count stays the same, but you can pull them up with one click.
 
 ---
 
-授權:CC BY 4.0(轉載請註明出處)
+## One line to take away
+
+> **An inbox is not a warehouse, it is a to-do list.**
+> Archive is not delete, and a filter is the actual cure. The one thing to be careful about: don't throw your bills out with the ads.
+
+---
+
+License: CC BY 4.0 (please credit the source when reposting)
